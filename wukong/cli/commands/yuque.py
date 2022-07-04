@@ -158,16 +158,16 @@ async def _like(user: Text, password: Text, docs: List[Text], num: int = 100):
     })
     await page.goto(login_url, options={'timeout': 60 * 1000})
     await page.type(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div.account-login.form-pro > form > div:nth-child(1) > div > div > span > div > span > input',
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(1) > div > div > span > div > span > input',
         user)
     await asyncio.sleep(2)
     await page.click(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div > div.login-more-warp > div > div.switch-login-warp > div > span')
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > div.login-more-warp > div > div.switch-login-warp > div > span')
     await page.type('#password', password)
     await page.click(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div.account-login.form-pro > div.lark-login-protocol > label > span.ant-checkbox > input')
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > div.lark-login-protocol > label > span.ant-checkbox > input')
     await page.click(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(4) > div > div > span > button')
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(4) > div > div > span > button')
     await asyncio.sleep(2)
 
     failed_docs = []
@@ -280,12 +280,17 @@ async def _follow(user: Text, password: Text, num: int = 50):
         "height": 1080
         })
     await page.goto(login_url, options={'timeout': 60 * 1000})
-    await page.type('#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div.account-login.form-pro > form > div:nth-child(1) > div > div > span > div > span > input', user)
+    await page.type(
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(1) > div > div > span > div > span > input',
+        user)
     await asyncio.sleep(2)
-    await page.click('#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div > div.login-more-warp > div > div.switch-login-warp > div > span')
+    await page.click(
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > div.login-more-warp > div > div.switch-login-warp > div > span')
     await page.type('#password', password)
-    await page.click('#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div.account-login.form-pro > div.lark-login-protocol > label > span.ant-checkbox > input')
-    await page.click('#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(4) > div > div > span > button')
+    await page.click(
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > div.lark-login-protocol > label > span.ant-checkbox > input')
+    await page.click(
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(4) > div > div > span > button')
     await asyncio.sleep(2)
 
     users = load_data("users_info")
@@ -396,16 +401,16 @@ async def _unfollow(user: Text, password: Text):
     })
     await page.goto(login_url, options={'timeout': 60 * 1000})
     await page.type(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div.account-login.form-pro > form > div:nth-child(1) > div > div > span > div > span > input',
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(1) > div > div > span > div > span > input',
         user)
     await asyncio.sleep(2)
     await page.click(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div > div.login-more-warp > div > div.switch-login-warp > div > span')
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > div.login-more-warp > div > div.switch-login-warp > div > span')
     await page.type('#password', password)
     await page.click(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div.account-login.form-pro > div.lark-login-protocol > label > span.ant-checkbox > input')
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > div.lark-login-protocol > label > span.ant-checkbox > input')
     await page.click(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(4) > div > div > span > button')
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(4) > div > div > span > button')
     await asyncio.sleep(2)
 
     users_followed = load_data("users_followed")
@@ -505,16 +510,16 @@ async def _comment(user: Text, password: Text, num: int = 50):
     })
     await page.goto(login_url, options={'timeout': 60 * 1000})
     await page.type(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div.account-login.form-pro > form > div:nth-child(1) > div > div > span > div > span > input',
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(1) > div > div > span > div > span > input',
         user)
     await asyncio.sleep(2)
     await page.click(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div > div.login-more-warp > div > div.switch-login-warp > div > span')
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > div.login-more-warp > div > div.switch-login-warp > div > span')
     await page.type('#password', password)
     await page.click(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div.account-login.form-pro > div.lark-login-protocol > label > span.ant-checkbox > input')
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > div.lark-login-protocol > label > span.ant-checkbox > input')
     await page.click(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(4) > div > div > span > button')
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(4) > div > div > span > button')
     await asyncio.sleep(2)
 
     docs = load_data("users_docs")
@@ -621,20 +626,16 @@ async def _note(user: Text, password: Text, num: int = 33):
     })
     await page.goto(login_url, options={'timeout': 60 * 1000})
     await page.type(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div.account-login.form-pro > form > div:nth-child(1) > div > div > span > div > span > input',
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(1) > div > div > span > div > span > input',
         user)
     await asyncio.sleep(2)
     await page.click(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div > div.login-more-warp > div > div.switch-login-warp > div > span')
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > div.login-more-warp > div > div.switch-login-warp > div > span')
     await page.type('#password', password)
     await page.click(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div.account-login.form-pro > div.lark-login-protocol > label > span.ant-checkbox > input')
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > div.lark-login-protocol > label > span.ant-checkbox > input')
     await page.click(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(4) > div > div > span > button')
-    await asyncio.sleep(2)
-
-    note_url = "https://www.yuque.com/dashboard/notes"
-    await page.goto(note_url, options={'timeout': 60 * 1000})
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(4) > div > div > span > button')
     await asyncio.sleep(2)
 
     with RichProgress(
@@ -707,16 +708,16 @@ async def _search_users(user: Text, password: Text, num: int, spec_user: Optiona
     })
     await page.goto(login_url, options={'timeout': 60 * 1000})
     await page.type(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div.account-login.form-pro > form > div:nth-child(1) > div > div > span > div > span > input',
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(1) > div > div > span > div > span > input',
         user)
     await asyncio.sleep(2)
     await page.click(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div > div.login-more-warp > div > div.switch-login-warp > div > span')
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > div.login-more-warp > div > div.switch-login-warp > div > span')
     await page.type('#password', password)
     await page.click(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div.account-login.form-pro > div.lark-login-protocol > label > span.ant-checkbox > input')
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > div.lark-login-protocol > label > span.ant-checkbox > input')
     await page.click(
-        '#ReactApp > div > div.lark.page-account.lark-login > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(4) > div > div > span > button')
+        '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(4) > div > div > span > button')
     await asyncio.sleep(2)
 
     users = load_data("users_info")
