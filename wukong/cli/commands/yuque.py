@@ -638,6 +638,8 @@ async def _note(user: Text, password: Text, num: int = 33):
         '#ReactApp > div > div.lark.page-account.pc-web.lark-login > div > div > div > div > div > div.lark-form-content.form-pro > div > form > div:nth-child(4) > div > div > span > button')
     await asyncio.sleep(2)
 
+    await page.goto("https://www.yuque.com/dashboard/notes", options={'timeout': 60 * 1000})
+
     with RichProgress(
             "[progress.description]{task.description}({task.completed}/{task.total})",
             SpinnerColumn(finished_text="🚀"),
