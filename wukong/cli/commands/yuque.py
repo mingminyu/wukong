@@ -654,7 +654,8 @@ async def _note(user: Text, password: Text, num: int = 33):
         task = progress.add_task(description, total=num)
 
         for i in range(1, num + 1):
-            await page.type(r'#mynote-container > div > div.index-module_leftSide_hjt\+x > div > div > div.index-module_editor_357aJ.index-module_singleMode_iaWgk.note-editor > div.lakex-note-editor.ne-doc-note-editor.ne-ui-scrollbar-visible > div > div.ne-editor-body > div.ne-editor-wrap > div.ne-editor-wrap-content > div > div > div.ne-editor-box > div > div', str(i))
+            # await page.type(r'#mynote-container > div > div.index-module_leftSide_hjt\+x > div > div > div.index-module_editor_357aJ.index-module_singleMode_iaWgk.note-editor > div.lakex-note-editor.ne-doc-note-editor.ne-ui-scrollbar-visible > div > div.ne-editor-body > div.ne-editor-wrap > div.ne-editor-wrap-content > div > div > div.ne-editor-box > div > div', str(i))
+            await page.type(r'#mynote-container > div > div.index-module_leftSide_hjt\+x > div > div > div.index-module_editor_357aJ.index-module_singleMode_iaWgk.note-editor > div.lakex-note-editor.ne-doc-note-editor.ne-ui-scrollbar-visible > div > div.ne-editor-body > div.ne-editor-wrap > div.ne-editor-wrap-content > div > div > div.ne-editor-box', str(i))
             await asyncio.sleep(1)
             await page.keyboard.down("Control")
             await page.keyboard.press("Enter")
