@@ -334,7 +334,7 @@ async def _follow(user: Text, password: Text, num: int = 50):
                 continue
 
             try:
-                status = await page.querySelectorAllEval('#ReactApp > div.lark > div.main-wrapper > div > div > div.ant-col.ant-col-xs-24.ant-col-sm-8.ant-col-md-7 > div.ant-card.ant-card-bordered.larkui-card.UserInfo-module_container_VLLyp > div > div.UserInfo-module_head_VQt2K > div.user-info-btn > button > span',
+                status = await page.querySelectorAllEval('#ReactApp > div.lark > div.main-wrapper > div > div.UserInfo-module_userWrapper_d-6Jy > div.UserInfo-module_info_mSJna > div.UserInfo-module_name_pFE-C > div:nth-child(2) > button',
                                                          'nodes => nodes.map(node => node.innerText)')
 
             except Exception as e:
@@ -345,7 +345,7 @@ async def _follow(user: Text, password: Text, num: int = 50):
                 continue
 
             if status[0] == "关注":
-                await page.click('#ReactApp > div.lark > div.main-wrapper > div > div > div.ant-col.ant-col-xs-24.ant-col-sm-8.ant-col-md-7 > div.ant-card.ant-card-bordered.larkui-card.UserInfo-module_container_VLLyp > div > div.UserInfo-module_head_VQt2K > div.user-info-btn > button')
+                await page.click('#ReactApp > div.lark > div.main-wrapper > div > div.UserInfo-module_userWrapper_d-6Jy > div.UserInfo-module_info_mSJna > div.UserInfo-module_name_pFE-C > div:nth-child(2) > button > span')
                 await asyncio.sleep(2)
                 progress.update(task, completed=p + 1, description=description)
 
@@ -449,7 +449,7 @@ async def _unfollow(user: Text, password: Text):
                     fw.write(user_unfollow + "\n")
 
             try:
-                status = await page.querySelectorAllEval('#ReactApp > div.lark > div.main-wrapper > div > div > div.ant-col.ant-col-xs-24.ant-col-sm-8.ant-col-md-7 > div.ant-card.ant-card-bordered.larkui-card.UserInfo-module_container_VLLyp > div > div.UserInfo-module_head_VQt2K > div.user-info-btn > button > span',
+                status = await page.querySelectorAllEval('#ReactApp > div.lark > div.main-wrapper > div > div.UserInfo-module_userWrapper_d-6Jy > div.UserInfo-module_info_mSJna > div.UserInfo-module_name_pFE-C > div:nth-child(2) > button',
                                                          'nodes => nodes.map(node => node.innerText)')
             except Exception as e:
                 with open('./data/users_not_exists.csv', 'a+', encoding='utf-8') as fw:
@@ -457,7 +457,7 @@ async def _unfollow(user: Text, password: Text):
                 continue
 
             if status[0] == "已关注":
-                await page.click('#ReactApp > div.lark > div.main-wrapper > div > div > div.ant-col.ant-col-xs-24.ant-col-sm-8.ant-col-md-7 > div > div > div.UserInfo-module_head_VQt2K > div.user-info-btn > button')
+                await page.click('#ReactApp > div.lark > div.main-wrapper > div > div.UserInfo-module_userWrapper_d-6Jy > div.UserInfo-module_info_mSJna > div.UserInfo-module_name_pFE-C > div:nth-child(2) > button > span')
                 progress.update(task, completed=p + 1, description=description)
                 await asyncio.sleep(2)
 
@@ -654,8 +654,8 @@ async def _note(user: Text, password: Text, num: int = 33):
         task = progress.add_task(description, total=num)
 
         for i in range(1, num + 1):
-            # await page.type(r'#mynote-container > div > div.index-module_leftSide_hjt\+x > div > div > div.index-module_editor_357aJ.index-module_singleMode_iaWgk.note-editor > div.lakex-note-editor.ne-doc-note-editor.ne-ui-scrollbar-visible > div > div.ne-editor-body > div.ne-editor-wrap > div.ne-editor-wrap-content > div > div > div.ne-editor-box > div > div', str(i))
-            await page.type(r'#mynote-container > div > div.index-module_leftSide_hjt\+x > div > div > div.index-module_editor_357aJ.index-module_singleMode_iaWgk.note-editor > div.lakex-note-editor.ne-doc-note-editor.ne-ui-scrollbar-visible > div > div.ne-editor-body > div.ne-editor-wrap > div.ne-editor-wrap-content > div > div > div.ne-editor-box', str(i))
+            await page.type(r'#mynote-container > div > div.index-module_leftSide_hjt\+x > div > div > div.index-module_editor_357aJ.index-module_singleMode_iaWgk.note-editor > div.lakex-note-editor.ne-doc-note-editor.ne-ui-scrollbar-visible > div > div.ne-editor-body > div.ne-editor-wrap > div.ne-editor-wrap-content > div > div > div.ne-editor-box > div > div', str(i))
+
             await asyncio.sleep(1)
             await page.keyboard.down("Control")
             await page.keyboard.press("Enter")
